@@ -3,8 +3,8 @@ class Account:
     A class representing a bank account.
 
     Attributes:
-        _account_name (str): The name of the account holder.
-        _account_balance (float): The current balance of the account.
+        __account_name (str): The name of the account holder.
+        __account_balance (float): The current balance of the account.
 
     Methods:
         deposit(amount: float) -> bool: Add a positive amount to the account balance.
@@ -20,8 +20,8 @@ class Account:
         Parameters:
             name (str): The name of the account holder.
         """
-        self._account_name = name
-        self._account_balance = 0
+        self.__account_name = name
+        self.__account_balance = 0
 
     def deposit(self, amount: float) -> bool:
         """
@@ -36,7 +36,8 @@ class Account:
         if amount <= 0:
             return False
         else:
-            self._account_balance += amount
+            self.__account_balance += amount
+            return True
 
     def get_name(self) -> str:
         """
@@ -45,7 +46,7 @@ class Account:
         Returns:
             str: The account holder's name.
         """
-        return self._account_name
+        return self.__account_name
 
     def get_balance(self) -> float:
         """
@@ -54,7 +55,7 @@ class Account:
         Returns:
             float: The current balance of the account.
         """
-        return self._account_balance
+        return self.__account_balance
 
     def withdraw(self, amount: float) -> bool:
         """
@@ -66,7 +67,8 @@ class Account:
         Returns:
             bool: True if the withdrawal was successful, False otherwise.
         """
-        if amount <= 0 or amount >= self._account_balance:
+        if amount <= 0 or amount >= self.__account_balance:
             return False
         else:
-            self._account_balance -= amount
+            self.__account_balance -= amount
+            return True
